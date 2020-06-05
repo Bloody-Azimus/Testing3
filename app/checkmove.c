@@ -74,28 +74,10 @@ int checkMove(int  oldX, int  oldY, int  newX, int  newY, int board[8][8]){
     else if(futureX > 0 && futureY > 0){
         return 0;
     }                                               //Влево вверх
-    else if(futureX > 0 && futureY < 0) {           //Влево вниз
-        if(board[oldY+1][oldX-1] == 0) {
-            if(newX == (oldX - 1) && newY == (oldY + 1) && (board[oldY][oldX] < 0)) {
-
-                return 1;
-            }
-            else {
-
-                return 0;
-            }
-
+    else if(futureX > 0 && futureY < 0) {
+        return 1;
         }
-
-        else if(board[oldY+1][oldX-1] != 0 && board[oldY+1][oldX-1] != board[oldY][oldX]){
-            if(newX == (oldX - 2) && newY == (oldY + 2)){
-                board[oldY + 1][oldX - 1] = 0;
-
-                return 1;
-            }
-            else return 0;
-        }
-    }                                               //Влево вниз
+                                                   //Влево вниз
     else if(futureX < 0 && futureY > 0) {
         return 0;
     }                                               //Вправо вверх
