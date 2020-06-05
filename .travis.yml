@@ -18,7 +18,7 @@ script:
 
 after_success:
   - make clean
-  - coveralls --root . -E ".*external.*" -E ".*tests.*"
+  - coveralls --root . -E ".*external.*" -E ".*tests.*" -E ".*main.c"
   - build-wrapper-linux-x86-64 --out-dir bw-output make clean all
   - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
 
